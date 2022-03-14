@@ -26,7 +26,7 @@ Data sets used to anlyze this space:
 
 ---  
 
-## Model Performance Results
+## Model Performance Evaluation Report
 
 ### Baseline Algorithm Performance
 A baseline performance was established by selecting initial training periods, and SMA short/long windows for the training and SMA windows.
@@ -79,19 +79,24 @@ The SMA short/long feature parameters were tuned using values of 10/60(short/lon
 Looking at the various tuning experiments above, note that 3 of the 4 experiements resulted in model results which outperformed the `Actual Returns`. However, the tuning experiment which used 6mos of training data and the 4/100 short/long SMA rolling windows was the winner, with the largest cumulative returns of nearly `1.8` and accuracy of `0.56`.
 
 
-## New Machine Learning Classifier
+## New LogisticRegression Machine Learning Classifier
 
-TBD  
+The parameters were returned to baseline, namely 3mos training data, and 4/100 rolling SMA. Then, an new ML Classifier model was created using [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) from sklearn library. This model was fit to the same baseline training data, and then predictions made from the same test data as the baseline model.
 
-### New Classifier Results
+### LogisticRegression Classifier Performance Results
 
-Did this new model perform better or worse than the provided baseline model? Did this new model perform better or worse than your tuned trading algorithm?  
+The logistic regression model with the baseline training data and parameters, had a cumulative returns _lower_ than the actual returns. The logistic regression model accuracy was `0.52`.  
+Logistic regression performance was worse than the original baseline algorithm, which had cumulative returns _higher_ than the actual returns and an accuracy of `0.55`.  
+Logistic regression performance was worse than the tuned model as well. The tuned model had a cumulative return of almost `1.8` and an accuuracy of `0.56`.   
 
 
-## Summary Evaluation
+**LogisticRegression Baseline**  
+![LogisticRegression - baseline data](media/11_logistic_regression_baseline_plot.png)
+![LogisticRegression - baseline data](media/12_logistic_regression_baseline_classification_report.png)  
 
-TBD  -   For this report, express your final conclusions and analysis. Support your findings by using the PNG images that you created.  
 
+## Summary
+After trying both `SVC` and `Logistic Regression` models with baseline training data, it appeared that the `SVC` model had better overal performance both with cumulative returns and accuracy. Moreover, after some tuning, a higher cumulative returns of `1.8` was achieved by using a larger, 6months window, of training data.  
 
 See full implementation and notebook details in [machine_learning_trading_bot.ipynb](app/machine_learning_trading_bot.ipynb)  
 
