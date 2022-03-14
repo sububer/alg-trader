@@ -1,5 +1,4 @@
-# alg-trader
-FinTech Challenge 14 -- ML Alg Trading Bot
+# FinTech Challenge 14 -- ML Alg Trading Strategies
 
 See full implementation and notebook details in [machine_learning_trading_bot.ipynb](app/machine_learning_trading_bot.ipynb)  
 
