@@ -1,5 +1,5 @@
-# FinTech Challenge 14 -- ML Alg Trading Strategies
-
+# ML Alg Trading Strategies
+FinTech Challenge 14  
 See full implementation and notebook details in [machine_learning_trading_bot.ipynb](app/machine_learning_trading_bot.ipynb)  
 
 ---
@@ -52,7 +52,7 @@ THe baseline model had a `0.55` accuracy, with a recall of `0.96` for the `1.0` 
 The model was re-fit with varying training data sizes, and SMA short/long windows to see if better performance could be achieved. In each case the same [SVC classifier](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html) was used as before, and the model classification report and plot were generated to help compare performance results.  
 
 #### Increasing/Decreasing Training Data Windows
-The training data winwdow was increased to a 6month time-period, and also decreased to a 1 month time period. The SMA short long was held constant at 4/100 (short/long).  
+The training data winwdow was increased to a 6month time-period, and also decreased to a 1 month time period. The SMA short long was held constant at 4/100 (short/long). Note that increasing the training window improved cumulative returns for the algorithmic strategy, to nearly `1.8`, while shortening the window lowered the cumulative returns to approximately `1.3`. Increasing the training data was an improvement.  
 
 **6mos Training Data**  
 ![6mos training data](media/03_6month_plot.png)
@@ -63,7 +63,7 @@ The training data winwdow was increased to a 6month time-period, and also decrea
 ![1mo training data](media/06_1month_classification_report.png)
 
 #### Increasing/Decreasing SMA Short/Long Rolling Windows
-The SMA short/long feature parameters were tuned using values of 10/60(short/long) and 8/75(short/long), with training data periods of 1 month and 2 months respectively.  
+The SMA short/long feature parameters were tuned using values of 10/60(short/long) and 8/75(short/long), with training data periods of 1 month and 2 months respectively. The 10/60 SMA resulted in cumulative returns of about `1.5`, while the 08/75 SMA underperformed the acutal data.  
 
 **1mo Training Data, 10/60 SMA**  
 ![1mo training data, 10/60 SMA](media/07_1mo_10_60_sma_plot.png)
