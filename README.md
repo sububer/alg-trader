@@ -27,13 +27,25 @@ Data sets used to anlyze this space:
 
 ---  
 
-## Model Tuning Results
+## Model Performance Results
 
-### Baseline
+### Baseline Algorithm Performance
+A baseline performance was established by selecting initial training periods, and SMA short/long windows for the training and SMA windows.
 
-TBD  
+#### Baseline Training Data Period
+The baseline X_train and y_train data was sliced from a three-month period beginning on `2015-04-02` and ending on `2015-07-02`.  
 
-**Baseline Model Performance**  
+#### Baseline SMA Windows
+The baseline SMA short(fast) window was `4` days.
+The baseline SMA long(slow) window was `100` days.  
+
+#### Baseline Classifier
+The baseline model used the [SVC classifier](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html) from sklearn. To fit the training data and make predictions against the test data set.
+
+#### Baseline Report
+THe baseline model had a `0.55` accuracy, with a recall of `0.96` for the `1.0` classification, and a recall of `0.04` for the `-1.0` classification. See chart below. Note that the algorithmic trading strategy did outperform the actual returns.  
+
+**Baseline Performance vs Actual Returns**  
 ![Baseline Performance](media/01_baseline_cum_returns.png)  
 
 ### Adjusted Training Dataset Size
