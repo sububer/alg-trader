@@ -46,19 +46,38 @@ The baseline model used the [SVC classifier](https://scikit-learn.org/stable/mod
 THe baseline model had a `0.55` accuracy, with a recall of `0.96` for the `1.0` classification, and a recall of `0.04` for the `-1.0` classification. See chart below. Note that the algorithmic trading strategy did outperform the actual returns.  
 
 **Baseline Performance vs Actual Returns**  
-![Baseline Performance](media/01_baseline_cum_returns.png)  
+![Baseline Performance](media/01_baseline_cum_returns.png)
+![Baseline Performance](media/02_baseline_classification_report.png)  
 
-### Adjusted Training Dataset Size
+### Adjusting ML Model Parameters
+The model was re-fit with varying training data sizes, and SMA short/long windows to see if better performance could be achieved. In each case the same [SVC classifier](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html) was used as before, and the model classification report and plot were generated to help compare performance results.  
 
-TBD  
+#### Increasing/Decreasing Training Data Windows
+The training data winwdow was increased to a 6month time-period, and also decreased to a 1 month time period. The SMA short long was held constant at 4/100 (short/long).  
 
-### Adjusted SMA Input Features
+**6mos Training Data**  
+![6mos training data](media/03_6month_plot.png)
+![6mos training data](media/04_6month_classification_report.png)
 
-TBD  
+**1mos Training Data**  
+![1mo training data](media/05_1month_plot.png)
+![1mo training data](media/06_1month_classification_report.png)
 
-### Parameter Tuning: Conclusions
+#### Increasing/Decreasing SMA Short/Long Rolling Windows
+The SMA short/long feature parameters were tuned using values of 10/60(short/long) and 8/75(short/long), with training data periods of 1 month and 2 months respectively.  
 
-TBD  
+**1mo Training Data, 10/60 SMA**  
+![1mo training data, 10/60 SMA](media/07_1mo_10_60_sma_plot.png)
+![1mo training data, 10/60 SMA](media/08_1mo_10_60_sma_classification_report.png)
+
+**2mo Training Data, 08/75 SMA**  
+![2mo training data, 08/75 SMA](media/09_2mos_08_75_sma_plot.png)
+![2mo training data, 08/75 SMA](media/10_2mos_08_75_sma_classification_report.png)
+
+
+### ML Model Parameter Tuning Performance Conclusions
+
+Looking at the various tuning experiments above, note that 3 of the 4 experiements resulted in model results which outperformed the `Actual Returns`. However, the tuning experiment which used 6mos of training data and the 4/100 short/long SMA rolling windows was the winner, with the largest cumulative returns of nearly `1.8` and accuracy of `0.56`.
 
 
 ## New Machine Learning Classifier
