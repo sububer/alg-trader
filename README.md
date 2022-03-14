@@ -95,8 +95,14 @@ Logistic regression performance was worse than the tuned model as well. The tune
 ![LogisticRegression - baseline data](media/12_logistic_regression_baseline_classification_report.png)  
 
 
-## Summary
+## Summary Evaluation
 After trying both `SVC` and `Logistic Regression` models with baseline training data, it appeared that the `SVC` model had better overal performance both with cumulative returns and accuracy. Moreover, after some tuning, a higher cumulative returns of `1.8` was achieved by using a larger, 6months window, of training data.  
+
+It is recommeded to use the larger 6mos training data set, with the 4/100 SMA rolling windows.  
+
+**Best Performance (6mos data)**  
+![6mos training data](media/03_6month_plot.png)
+![6mos training data](media/04_6month_classification_report.png)
 
 See full implementation and notebook details in [machine_learning_trading_bot.ipynb](app/machine_learning_trading_bot.ipynb)  
 
